@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "petsneed-screenshot",
+      "description": "Screenshot of the petsneed.in homepage",
+      "imageUrl": "/images/petsneed.png",
+      "imageHint": "pet care website"
+    },
+    {
+      "id": "drselim-screenshot",
+      "description": "Screenshot of the drselimsk.com homepage",
+      "imageUrl": "/images/drselimsk.png",
+      "imageHint": "veterinary website"
+    },
+    {
+      "id": "welearn-screenshot",
+      "description": "Screenshot of the welearn.net.in homepage",
+      "imageUrl": "/images/welearnacademy.png",
+      "imageHint": "education website"
+    },
+    {
+      "id": "rijaulsk-photo",
+      "description": "Image of Rijaul Sk",
+      "imageUrl": "/rijaulsk.png",
+      "imageHint": "personal image"
+    }
+  ]
+}
