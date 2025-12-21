@@ -7,16 +7,10 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-<<<<<<< HEAD
-  { name: 'Work', href: '#work' },
-  { name: 'Process', href: '#process' },
-  { name: 'Engagement', href: '#engagement' },
-=======
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
   { name: 'Work', href: '#work' },
   { name: 'About', href: '#about' },
->>>>>>> 08dc22f (first commit)
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -26,10 +20,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-<<<<<<< HEAD
-=======
       // Activates the glass effect after scrolling 10px
->>>>>>> 08dc22f (first commit)
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
@@ -41,23 +32,6 @@ export default function Header() {
   return (
     <header
       className={cn(
-<<<<<<< HEAD
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled
-          ? 'bg-background/75 backdrop-blur-lg border-b border-border/40 shadow-sm'
-          : 'bg-transparent'
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <div className="flex items-center gap-2">
-          <a href="#home" className="text-xl font-bold text-foreground">
-            Rijaul Sk
-          </a>
-          <span className="hidden sm:block text-sm text-foreground/80">
-            Founder @ DebugSwift
-          </span>
-        </div>
-=======
         // Base styles: Sticky, Width, Z-index (keeps it above the grid)
         'sticky top-0 z-50 w-full transition-all duration-300',
         
@@ -71,7 +45,6 @@ export default function Header() {
         <a href="#home" className="text-xl font-bold text-foreground">
           Rijaul Sk
         </a>
->>>>>>> 08dc22f (first commit)
         
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
@@ -89,11 +62,7 @@ export default function Header() {
         {/* Desktop Action Button */}
         <div className="hidden md:flex items-center gap-4">
           <Button asChild>
-<<<<<<< HEAD
-            <a href="#contact">
-=======
             <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
->>>>>>> 08dc22f (first commit)
               Start a Conversation
             </a>
           </Button>
@@ -109,10 +78,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             
-<<<<<<< HEAD
-=======
             {/* Mobile Menu Content - Added consistent Glassmorphism here too */}
->>>>>>> 08dc22f (first commit)
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md">
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b pb-4">
@@ -138,11 +104,7 @@ export default function Header() {
                 </nav>
                 <div className="mt-auto">
                     <Button asChild className="w-full">
-<<<<<<< HEAD
-                        <a href="#contact">
-=======
                         <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
->>>>>>> 08dc22f (first commit)
                         Start a Conversation
                         </a>
                     </Button>

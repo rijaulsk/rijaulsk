@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-export default function Footer() {
-  return (
-    <footer className="w-full bg-background py-8">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="text-center text-sm text-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Rijaul Sk. All rights reserved.</p>
-=======
 import { MessageCircle, Linkedin } from "lucide-react";
 
 const navItems = [
@@ -57,7 +49,6 @@ export default function Footer() {
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Rijaul Sk. Built with focus and honesty.</p>
           <p>Powered by DebugSwift</p>
->>>>>>> 08dc22f (first commit)
         </div>
       </div>
     </footer>
