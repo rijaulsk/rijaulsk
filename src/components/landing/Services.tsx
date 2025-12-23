@@ -1,108 +1,202 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Palette, Layout, Code2, Search, Rocket } from "lucide-react";
 import { FadeIn, FadeInStagger } from "../ui/fade-in";
 
-const services = [
+const capabilities = [
   {
-    title: "Quick Business Website",
-    price: "₹12,000 - ₹18,000",
-    features: [
-      "Clean, professional website (5-7 pages)",
-      "Mobile-optimized, fast loading",
-      "Basic SEO setup (meta tags, sitemap)",
-      "Google Business optimization",
-      "2 weeks support",
+    icon: Palette,
+    title: "Brand & Identity Systems",
+    description: "Visual foundation that represents your business clearly",
+    points: [
+      "Logo direction and color systems",
+      "Consistent style guidelines",
+      "Professional, purposeful design"
     ],
-    timeline: "7-10 days",
-    bestFor: "Small businesses, consultants, local services",
-    isPopular: false,
+    gradient: "from-purple-500/20 to-pink-500/20"
   },
   {
-    title: "Complete Digital Setup",
-    price: "₹25,000 - ₹40,000",
-    features: [
-      "Brand basics (logo direction, colors, style guide)",
-      "Custom website (design + development)",
-      "Performance optimization (Lighthouse 90+)",
-      "SEO foundations (meta, schema, sitemaps)",
+    icon: Layout,
+    title: "Business Websites",
+    description: "Fast, mobile-optimized sites built for conversion",
+    points: [
+      "Responsive across all devices",
+      "Performance-tuned for speed",
+      "Clear user flows and navigation"
+    ],
+    gradient: "from-blue-500/20 to-cyan-500/20"
+  },
+  {
+    icon: Code2,
+    title: "Custom Web Applications",
+    description: "Tailored digital tools that fit your workflow",
+    points: [
+      "Built for your specific needs",
+      "Scalable architecture",
+      "Clean, maintainable code"
+    ],
+    gradient: "from-emerald-500/20 to-teal-500/20"
+  },
+  {
+    icon: Search,
+    title: "SEO & Performance",
+    description: "Structured for visibility and lightning-fast loading",
+    points: [
+      "Technical SEO foundation",
       "Google Business setup & optimization",
-      "1 month post-launch support",
+      "Schema markup and metadata",
+      "Lighthouse 90+ optimization"
     ],
-    timeline: "2-3 weeks",
-    bestFor: "Professionals, established businesses, those wanting complete setup",
-    isPopular: true,
+    gradient: "from-orange-500/20 to-amber-500/20"
   },
   {
-    title: "Ongoing Support",
-    price: "₹8,000 - ₹15,000/month",
-    features: [
-      "Monthly updates & changes",
-      "Performance monitoring",
-      "Content updates",
-      "Basic SEO maintenance",
-      "Priority support",
+    icon: Rocket,
+    title: "Deployment & Support",
+    description: "Reliable handover with ongoing maintenance",
+    points: [
+      "Smooth production deployment",
+      "Analytics and tracking setup",
+      "Documentation and training",
+      "Post-launch support available"
     ],
-    timeline: "Ongoing",
-    bestFor: "Existing clients, agencies, businesses needing regular updates",
-    isPopular: false,
-  },
+    gradient: "from-indigo-500/20 to-violet-500/20"
+  }
 ];
 
-export default function Services() {
+export default function Capabilities() {
   return (
-    <section id="services" className="w-full bg-gray-50 dark:bg-black/20 py-16 md:py-20">
-      <FadeIn className="mx-auto max-w-7xl px-6">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold leading-tight tracking-tighter text-foreground">What I Offer</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg leading-relaxed text-foreground/80">
-            Clear, affordable packages to get your business online and growing.
+    <section id="services" className="relative w-full bg-background py-16 md:py-24 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-blob" />
+        <div className="absolute top-40 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-blob animation-delay-2000" />
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-grid opacity-[0.02]" />
+      </div>
+
+      <FadeIn className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20 animate-pulse-slow">
+            <span className="relative flex h-2 w-2 mr-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Full-Stack Capabilities
+          </div>
+          <h2 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
+            What I <span className="text-primary">Build</span>
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-foreground/70">
+            Complete digital systems from brand identity to deployment. Each piece designed to work together.
           </p>
         </div>
-        <FadeInStagger className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <FadeIn
-              key={service.title}
-            >
-            <Card
-              className={`flex flex-col h-full transition-transform duration-300 hover:-translate-y-2 ${
-                service.isPopular ? "border-primary shadow-lg" : "shadow-sm"
-              }`}
-            >
-              <CardHeader className="relative">
-                {service.isPopular && (
-                  <Badge className="absolute top-0 -translate-y-1/2 bg-accent text-accent-foreground">Most Popular</Badge>
-                )}
-                <CardTitle className="text-2xl font-semibold leading-snug">{service.title}</CardTitle>
-                <CardDescription className="text-3xl font-bold text-primary">{service.price}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <ul className="space-y-3">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-start">
-                      <Check className="mr-2 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                      <span className="text-base leading-relaxed text-foreground/80">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter className="flex flex-col items-start gap-4 pt-6">
-                 <div className="w-full text-sm text-foreground/70">
-                    <p><span className="font-semibold">Timeline:</span> {service.timeline}</p>
-                    <p><span className="font-semibold">Best For:</span> {service.bestFor}</p>
-                </div>
-                <Button asChild className="w-full" variant={service.isPopular ? "default" : "outline"}>
-                   <a href={`https://wa.me/918479823836?text=Hi%20Rijaul,%20I'm%20interested%20in%20the%20${encodeURIComponent(service.title)}%20package.`} target="_blank" rel="noopener noreferrer">
-                    Get Started
-                    </a>
-                </Button>
-              </CardFooter>
-            </Card>
-            </FadeIn>
-          ))}
+
+        <FadeInStagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {capabilities.slice(0, 3).map((capability, index) => {
+            const Icon = capability.icon;
+            return (
+              <FadeIn key={capability.title}>
+                <Card className="group relative h-full transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-2 border-border/50 hover:border-primary/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+                  {/* Gradient Background on Hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  {/* Animated Corner Accent */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-[100px] transform translate-x-10 -translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500" />
+                  
+                  <CardHeader className="relative z-10">
+                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 group-hover:rotate-6 shadow-lg">
+                      <Icon className="h-7 w-7" strokeWidth={2} />
+                    </div>
+                    <CardTitle className="text-xl font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">
+                      {capability.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <p className="text-sm text-foreground/70 mb-4 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                      {capability.description}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {capability.points.map((point, idx) => (
+                        <li 
+                          key={point} 
+                          className="flex items-start text-sm text-foreground/60 group-hover:text-foreground/70 transition-all duration-300"
+                          style={{ transitionDelay: `${idx * 50}ms` }}
+                        >
+                          <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary group-hover:scale-150 transition-transform duration-300"></span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  
+                  {/* Bottom Glow Effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </Card>
+              </FadeIn>
+            );
+          })}
+        </FadeInStagger>
+
+        <FadeInStagger className="mt-6 grid gap-6 md:grid-cols-2">
+          {capabilities.slice(3).map((capability, index) => {
+            const Icon = capability.icon;
+            return (
+              <FadeIn key={capability.title}>
+                <Card className="group relative h-full transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-2 border-border/50 hover:border-primary/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+                  {/* Gradient Background on Hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${capability.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  
+                  {/* Animated Corner Accent */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-[100px] transform translate-x-10 -translate-y-10 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500" />
+                  
+                  <CardHeader className="relative z-10">
+                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 group-hover:rotate-6 shadow-lg">
+                      <Icon className="h-7 w-7" strokeWidth={2} />
+                    </div>
+                    <CardTitle className="text-xl font-semibold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">
+                      {capability.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <p className="text-sm text-foreground/70 mb-4 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                      {capability.description}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {capability.points.map((point, idx) => (
+                        <li 
+                          key={point} 
+                          className="flex items-start text-sm text-foreground/60 group-hover:text-foreground/70 transition-all duration-300"
+                          style={{ transitionDelay: `${idx * 50}ms` }}
+                        >
+                          <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary group-hover:scale-150 transition-transform duration-300"></span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                  
+                  {/* Bottom Glow Effect */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </Card>
+              </FadeIn>
+            );
+          })}
         </FadeInStagger>
       </FadeIn>
+
+      <style jsx>{`
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 2s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 }

@@ -24,8 +24,8 @@ export default function Home() {
           <Work />
           <Process />
           <WhyMe />
-          <About />
           <Contact />
+          <About />
         </main>
         <Footer />
       </div>

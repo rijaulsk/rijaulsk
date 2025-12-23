@@ -20,7 +20,6 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Activates the glass effect after scrolling 10px
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
@@ -32,27 +31,30 @@ export default function Header() {
   return (
     <header
       className={cn(
-        // Base styles: Sticky, Width, Z-index (keeps it above the grid)
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        
-        // Conditional Styles
+        'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-background/75 backdrop-blur-lg border-b border-border/40 shadow-sm' // Glassmorphism Active
-          : 'bg-transparent' // Initial State (Clean)
+          ? 'bg-background/80 backdrop-blur-md border-b border-border/40 shadow-sm'
+          : 'bg-transparent'
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#home" className="text-xl font-bold text-foreground">
-          Rijaul Sk
-        </a>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6">
+        {/* Logo and Tagline */}
+        <div className="flex flex-col min-w-0 flex-shrink">
+          <a href="#home" className="text-xl font-bold text-foreground leading-tight">
+            Rijaul Sk
+          </a>
+          <p className="text-xs text-muted-foreground mt-0.5 truncate">
+            Founder @ DebugSwift | Instructor @ Welearn Academy
+          </p>
+        </div>
         
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 flex-shrink-0">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary whitespace-nowrap"
             >
               {item.name}
             </a>
@@ -60,8 +62,8 @@ export default function Header() {
         </nav>
 
         {/* Desktop Action Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <Button asChild>
+        <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+          <Button asChild className="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all">
             <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
               Start a Conversation
             </a>
@@ -78,36 +80,46 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             
-            {/* Mobile Menu Content - Added consistent Glassmorphism here too */}
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md">
-              <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b pb-4">
-                  <a href="#home" className="text-xl font-bold text-foreground" onClick={closeMobileMenu}>
-                    Rijaul Sk
-                  </a>
-                  <Button variant="ghost" size="icon" onClick={closeMobileMenu}>
+            {/* Mobile Menu Content */}
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md [&>button]:hidden">
+              <div className="flex flex-col h-full">
+                <div className="flex items-start justify-between mb-8 gap-4">
+                  <div className="flex flex-col min-w-0 flex-1">
+                    <a href="#home" className="text-xl font-bold text-foreground leading-tight" onClick={closeMobileMenu}>
+                      Rijaul Sk
+                    </a>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      Founder @ DebugSwift | Instructor @ Welearn Academy
+                    </p>
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={closeMobileMenu}
+                    className="h-10 w-10 hover:bg-accent hover:text-accent-foreground rounded-md flex-shrink-0"
+                  >
                     <X className="h-6 w-6" />
                     <span className="sr-only">Close menu</span>
                   </Button>
                 </div>
-                <nav className="mt-8 flex flex-col gap-6">
+                <nav className="flex flex-col gap-1 items-center">
                   {navItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
+                      className="text-base font-medium text-foreground/80 transition-colors hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-lg w-full text-center"
                       onClick={closeMobileMenu}
                     >
                       {item.name}
                     </a>
                   ))}
                 </nav>
-                <div className="mt-auto">
-                    <Button asChild className="w-full">
-                        <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
-                        Start a Conversation
-                        </a>
-                    </Button>
+                <div className="mt-8">
+                  <Button asChild className="w-full shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                    <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
+                      Start a Conversation
+                    </a>
+                  </Button>
                 </div>
               </div>
             </SheetContent>
