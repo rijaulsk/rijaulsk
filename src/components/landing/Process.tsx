@@ -6,22 +6,22 @@ const processSteps = [
   {
     icon: Telescope,
     title: "Understand",
-    description: "I start by understanding your business, goals, and what you actually need — not just what you think you want."
+    description: "Goals, constraints, and context come first."
   },
   {
     icon: DraftingCompass,
     title: "Design & Plan",
-    description: "I create a clear plan and design direction. You'll see the structure before any code is written."
+    description: "UI, structure, and technical decisions are made deliberately."
   },
   {
     icon: Code,
     title: "Build & Optimize",
-    description: "I build the system with clean code, performance in mind, and attention to detail. Regular updates along the way."
+    description: "Clean, performance-focused execution."
   },
   {
     icon: Rocket,
     title: "Launch & Support",
-    description: "I handle deployment, testing, and provide support. You get a working system, not just files."
+    description: "Deployment and continued support if needed."
   }
 ];
 
@@ -30,7 +30,7 @@ export default function Process() {
     <section id="process" className="w-full bg-background py-16 md:py-20">
       <FadeIn className="mx-auto max-w-7xl px-6">
         <div className="text-center">
-          <h2 className="text-4xl font-bold leading-tight tracking-tighter text-foreground">My Approach</h2>
+          <h2 className="text-4xl font-bold leading-tight tracking-tighter text-foreground">How I Work</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg leading-relaxed text-foreground/80">
             A structured process to ensure we build the right thing, the right way.
           </p>
