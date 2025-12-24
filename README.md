@@ -1,5 +1,5 @@
-# Firebase Studio
+# Rijaul Sk
 
-This is a NextJS starter in Firebase Studio.
+Founder @ DebugSwift
 
-To get started, take a look at src/app/page.tsx.
+Instructor @ WeLearn Academy
