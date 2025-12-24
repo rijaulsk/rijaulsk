@@ -15,7 +15,7 @@ export default function Hero() {
   }, []);
 
   // Magnetic button effect
-  const handleMouseMove = (e: React.MouseEvent, buttonRef: React.RefObject<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, buttonRef: React.RefObject<HTMLDivElement>) => {
     if (!buttonRef.current) return;
     
     const button = buttonRef.current;
@@ -55,7 +55,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative w-full bg-background pt-20 overflow-hidden">
+    <section id="home" className="relative w-full bg-background pt-16 md:pt-20 overflow-hidden">
       {/* Custom Cursor Glow */}
       <div 
         className="pointer-events-none fixed w-96 h-96 rounded-full blur-3xl opacity-20 bg-primary/30 transition-all duration-300 ease-out z-50"
@@ -148,7 +148,7 @@ export default function Hero() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 py-16 md:py-20 text-center">
         {/* Animated Badge */}
         <div className="group mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 cursor-default">
           <Sparkles className="h-4 w-4 text-primary animate-pulse" />
@@ -259,6 +259,23 @@ export default function Hero() {
             <span>2 project slots available</span>
           </div>
         </div>
+      </div>
+
+      {/* Section Divider Wave */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <svg 
+          viewBox="0 0 1440 80" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+        >
+          <path 
+            d="M0,32 C320,80 640,0 960,32 C1280,64 1440,0 1440,32 L1440,80 L0,80 Z" 
+            fill="hsl(var(--background))"
+            className="opacity-100"
+          />
+        </svg>
       </div>
 
       <style jsx>{`

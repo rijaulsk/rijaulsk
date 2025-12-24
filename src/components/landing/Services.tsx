@@ -67,6 +67,23 @@ const capabilities = [
 export default function Capabilities() {
   return (
     <section id="services" className="relative w-full bg-background py-16 md:py-24 overflow-hidden">
+      {/* Top Wave Separator */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none">
+        <svg 
+          viewBox="0 0 1440 80" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto rotate-180"
+          preserveAspectRatio="none"
+        >
+          <path 
+            d="M0,32 C320,80 640,0 960,32 C1280,64 1440,0 1440,32 L1440,80 L0,80 Z" 
+            fill="hsl(var(--background))"
+            className="opacity-100"
+          />
+        </svg>
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-blob" />
