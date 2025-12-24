@@ -1,17 +1,70 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const primaryButtonRef = useRef<HTMLDivElement>(null);
+  const secondaryButtonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Magnetic button effect
+  const handleMouseMove = (e: React.MouseEvent, buttonRef: React.RefObject<HTMLDivElement>) => {
+    if (!buttonRef.current) return;
+    
+    const button = buttonRef.current;
+    const rect = button.getBoundingClientRect();
+    const buttonCenterX = rect.left + rect.width / 2;
+    const buttonCenterY = rect.top + rect.height / 2;
+    
+    const distanceX = e.clientX - buttonCenterX;
+    const distanceY = e.clientY - buttonCenterY;
+    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    
+    // Magnetic effect within 150px radius
+    if (distance < 150) {
+      const strength = (150 - distance) / 150;
+      const moveX = (distanceX / distance) * strength * 15;
+      const moveY = (distanceY / distance) * strength * 15;
+      
+      button.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    } else {
+      button.style.transform = 'translate(0px, 0px)';
+    }
+  };
+
+  const handleMouseLeave = (buttonRef: React.RefObject<HTMLDivElement>) => {
+    if (!buttonRef.current) return;
+    buttonRef.current.style.transform = 'translate(0px, 0px)';
+  };
+
+  // Track mouse for cursor glow
+  useEffect(() => {
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    return () => window.removeEventListener('mousemove', handleGlobalMouseMove);
+  }, []);
+
   return (
     <section id="home" className="relative w-full bg-background pt-20 overflow-hidden">
+      {/* Custom Cursor Glow */}
+      <div 
+        className="pointer-events-none fixed w-96 h-96 rounded-full blur-3xl opacity-20 bg-primary/30 transition-all duration-300 ease-out z-50"
+        style={{
+          left: mousePosition.x - 192,
+          top: mousePosition.y - 192,
+        }}
+      />
+
       {/* Floating Animated Elements */}
       {mounted && (
         <>
@@ -96,27 +149,115 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center">
-        <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
-          Digital <span className="text-primary">Systems</span> Built for Your Business
+        {/* Animated Badge */}
+        <div className="group mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 cursor-default">
+          <Sparkles className="h-4 w-4 text-primary animate-pulse" />
+          <span className="text-sm font-medium text-primary">Available for Select Projects</span>
+          <div className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+          </div>
+        </div>
+
+        <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          Digital <span className="text-primary relative inline-block">
+            Systems
+            <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 100 8" preserveAspectRatio="none">
+              <path d="M0,4 Q25,0 50,4 T100,4" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary/30" />
+            </svg>
+          </span> Built for Your Business
         </h1>
-        <p className="mt-6 max-w-3xl text-xl leading-relaxed text-foreground/80 md:text-2xl">
+        
+        <p className="mt-6 max-w-3xl text-xl leading-relaxed text-foreground/80 md:text-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
           <span className="text-primary font-semibold">Branding</span> → <span className="text-primary font-semibold">UI/UX</span> → <span className="text-primary font-semibold">Development</span> → <span className="text-primary font-semibold">SEO</span> → <span className="text-primary font-semibold">Deployment</span>
         </p>
-        <p className="mt-3 text-xl leading-relaxed text-foreground/80 md:text-2xl font-semibold">
+        <p className="mt-3 text-xl leading-relaxed text-foreground/80 md:text-2xl font-semibold animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
           Done Right.
         </p>
-        <p className="mt-6 text-sm text-foreground/60 tracking-wide">
+        <p className="mt-6 text-sm text-foreground/60 tracking-wide animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
           Calm execution. Clear communication. Honest deliveries.
         </p>
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:gap-6">
-          <Button asChild size="lg" className="text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all">
-            <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
-              Start a Conversation
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="text-base px-8 py-6 border-primary/30 hover:border-primary hover:bg-primary/5 hover:text-foreground transition-all">
-            <a href="#work">View My Work</a>
-          </Button>
+
+        {/* God-Level Interactive Buttons */}
+        <div 
+          className="mt-10 flex flex-col gap-4 sm:flex-row sm:gap-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500"
+          onMouseMove={(e) => {
+            handleMouseMove(e, primaryButtonRef);
+            handleMouseMove(e, secondaryButtonRef);
+          }}
+          onMouseLeave={() => {
+            handleMouseLeave(primaryButtonRef);
+            handleMouseLeave(secondaryButtonRef);
+          }}
+        >
+          {/* Primary Magnetic Button */}
+          <div 
+            ref={primaryButtonRef}
+            className="relative transition-transform duration-200 ease-out"
+          >
+            <div className="absolute inset-0 rounded-lg bg-primary/20 blur-xl group-hover:blur-2xl transition-all duration-300 opacity-0 group-hover:opacity-100" />
+            <Button 
+              asChild 
+              size="lg" 
+              className="group relative text-base px-8 py-6 shadow-lg shadow-primary/25 hover:shadow-2xl hover:shadow-primary/40 transition-all duration-300 overflow-hidden"
+            >
+              <a href="https://wa.me/918479823836?text=Hi%20Rijaul,%20I%20want%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer">
+                {/* Animated gradient background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                
+                <span className="relative z-10 flex items-center gap-2">
+                  Start a Conversation
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </a>
+            </Button>
+          </div>
+
+          {/* Secondary Magnetic Button */}
+          <div 
+            ref={secondaryButtonRef}
+            className="relative transition-transform duration-200 ease-out"
+          >
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="group relative text-base px-8 py-6 border-2 border-primary/30 hover:border-primary hover:bg-primary/5 transition-all duration-300 overflow-hidden"
+            >
+              <a href="#work" className="relative z-10">
+                {/* Animated border glow */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <span className="relative z-10 flex items-center gap-2 text-foreground group-hover:text-primary transition-colors duration-300">
+                  View My Work
+                  <svg 
+                    className="h-4 w-4 group-hover:rotate-90 transition-transform duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </span>
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        {/* Trust Indicators */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-foreground/60 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span>Response within 24 hours</span>
+          </div>
+          <span className="hidden sm:inline">•</span>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse animation-delay-1000" />
+            <span>2 project slots available</span>
+          </div>
         </div>
       </div>
 
@@ -166,6 +307,10 @@ export default function Hero() {
 
         .animate-pulse-slow {
           animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        .animation-delay-1000 {
+          animation-delay: 1s;
         }
       `}</style>
     </section>
