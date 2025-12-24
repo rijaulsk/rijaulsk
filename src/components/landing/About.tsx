@@ -34,7 +34,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative w-full bg-background py-16 md:py-24 overflow-hidden"
+      className="relative w-full bg-background py-16 md:py-20 overflow-hidden"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -66,7 +66,7 @@ const capabilities = [
 
 export default function Capabilities() {
   return (
-    <section id="services" className="relative w-full bg-background py-16 md:py-24 overflow-hidden">
+    <section id="services" className="relative w-full bg-background pt-14 pb-16 md:pt-16 md:pb-20 overflow-hidden">
       {/* Top Wave Separator */}
       <div className="absolute top-0 left-0 right-0 pointer-events-none">
         <svg 
@@ -111,7 +111,7 @@ export default function Capabilities() {
           </p>
         </div>
 
-        <FadeInStagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <FadeInStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {capabilities.slice(0, 3).map((capability, index) => {
             const Icon = capability.icon;
             return (

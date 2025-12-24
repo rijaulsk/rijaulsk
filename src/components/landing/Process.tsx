@@ -37,7 +37,7 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <section id="process" className="relative w-full bg-muted/30 py-16 md:py-24 overflow-hidden">
+    <section id="process" className="relative w-full bg-muted/30 pt-14 pb-16 md:pt-16 md:pb-20 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob" />

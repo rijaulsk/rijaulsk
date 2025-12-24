@@ -44,7 +44,7 @@ const differentiators: Differentiator[] = [
 
 export default function WhyMe() {
   return (
-    <section id="why-me" className="relative w-full bg-background py-16 md:py-24 overflow-hidden">
+    <section id="why-me" className="relative w-full bg-background py-16 md:py-20 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob" />

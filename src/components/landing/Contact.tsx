@@ -63,7 +63,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative w-full py-16 md:py-24 bg-muted/30 overflow-hidden">
+    <section id="contact" className="relative w-full py-16 md:py-20 bg-muted/30 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob" />

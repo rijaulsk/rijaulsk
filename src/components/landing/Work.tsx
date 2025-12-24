@@ -33,7 +33,7 @@ const projects = [
 
 export default function Work() {
   return (
-    <section id="work" className="relative w-full bg-muted/30 py-16 md:py-24 overflow-hidden">
+    <section id="work" className="relative w-full bg-muted/30 pt-16 pb-14 md:pt-20 md:pb-16 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob" />

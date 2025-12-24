@@ -317,7 +317,7 @@ export default function Hero() {
       )}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 py-16 md:py-20 text-center">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-center justify-center px-6 py-14 md:py-16 text-center">
         {/* Animated Badge */}
         <div className="group mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/15 hover:border-primary/30 transition-all duration-300 cursor-default">
           <Sparkles className="h-4 w-4 text-primary animate-pulse" />
