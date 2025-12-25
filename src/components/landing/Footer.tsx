@@ -43,17 +43,17 @@ export default function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:py-16">
         <div className="grid gap-12 md:grid-cols-4 md:gap-8">
           {/* About Section */}
-          <div className="md:col-span-2 space-y-6">
+          <div className="md:col-span-2 space-y-6 text-center md:text-left">
             <div className="space-y-3">
               <h3 className="text-3xl font-bold text-white">
                 Rijaul Sk
               </h3>
-              <p className="text-base text-gray-400 max-w-md">
+              <p className="text-base text-gray-400 max-w-md mx-auto md:mx-0">
                 Building complete digital systems for businesses who value clarity, quality, and reliable execution.
               </p>
             </div>
             
-            <div className="space-y-3 pt-2">
+            <div className="space-y-3 pt-2 flex flex-col items-center md:items-start">
               <div className="group flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
                 <div className="w-2 h-2 bg-primary rounded-full group-hover:scale-150 transition-transform duration-300"></div>
                 <p className="text-sm text-gray-400">
@@ -69,7 +69,7 @@ export default function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div className="pt-4 space-y-2">
+            <div className="pt-4 space-y-2 flex flex-col items-center md:items-start">
               <a 
                 href="mailto:rijaulsk@debugswift.com"
                 className="group flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors duration-300"
@@ -88,11 +88,11 @@ export default function Footer() {
           </div>
           
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold text-white mb-5 relative inline-block">
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
               {navItems.map(item => (
                 <li key={item.name}>
                   <a 
@@ -110,9 +110,9 @@ export default function Footer() {
           </div>
 
           {/* Social Links */}
-          <div>
+          <div className="text-center md:text-left flex flex-col items-center md:items-start">
             <h4 className="text-lg font-semibold text-white mb-5">Connect</h4>
-            <div className="space-y-4">
+            <div className="space-y-4 w-full max-w-xs md:max-w-none">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (

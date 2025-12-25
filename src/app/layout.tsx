@@ -1,4 +1,4 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
 import './globals.css';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import BackgroundGradientFollow from '@/components/ui/background-gradient-follow';
@@ -18,8 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <head />
-      <body className="font-body bg-background text-foreground antialiased">
+      {/* 1. Added suppressHydrationWarning to <body> 
+         2. Removed <head /> (Next.js App Router handles this automatically via metadata)
+      */}
+      <body 
+        className="font-body bg-background text-foreground antialiased"
+        suppressHydrationWarning
+      >
         <BackgroundGradientFollow />
         {children}
       </body>
