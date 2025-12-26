@@ -25,7 +25,7 @@ const socialLinks = [
   },
   {
     name: 'Email',
-    href: 'mailto:rijaulsk@debugswift.com',
+    href: 'mailto:rijaul.debugswift.com',
     icon: Mail,
     color: 'hover:text-primary'
   }
@@ -71,11 +71,11 @@ export default function Footer() {
             {/* Contact Info */}
             <div className="pt-4 space-y-2 flex flex-col items-center md:items-start">
               <a 
-                href="mailto:rijaulsk@debugswift.com"
+                href="mailto:rijaul.debugswift.com"
                 className="group flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors duration-300"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-                rijaulsk@debugswift.com
+                rijaul.debugswift.com
               </a>
               <a 
                 href="tel:+918479823836"

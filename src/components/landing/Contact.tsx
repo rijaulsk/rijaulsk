@@ -195,15 +195,15 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold text-foreground mb-4">Quick Contact</h3>
                 <div className="space-y-4">
                   <a 
-                    href="mailto:rijaulsk@debugswift.com" 
+                    href="mailto:rijaul.debugswift.com" 
                     className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-all duration-300 group/item"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-all duration-300 flex-shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:item:bg-primary group-hover:item:text-primary-foreground transition-all duration-300 flex-shrink-0">
                       <Mail className="h-5 w-5" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs text-foreground/50 font-medium uppercase tracking-wider mb-1">Email</p>
-                      <p className="text-sm text-foreground/80 group-hover/item:text-primary transition-colors truncate">rijaulsk@debugswift.com</p>
+                      <p className="text-sm text-foreground/80 group-hover:item:text-primary transition-colors truncate">rijaul.debugswift.com</p>
                     </div>
                   </a>
 
@@ -213,12 +213,12 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-all duration-300 group/item"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-all duration-300 flex-shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:item:bg-primary group-hover:item:text-primary-foreground transition-all duration-300 flex-shrink-0">
                       <Phone className="h-5 w-5" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs text-foreground/50 font-medium uppercase tracking-wider mb-1">WhatsApp</p>
-                      <p className="text-sm text-foreground/80 group-hover/item:text-primary transition-colors">+91 8479823836</p>
+                      <p className="text-sm text-foreground/80 group-hover:item:text-primary transition-colors">+91 8479823836</p>
                     </div>
                   </a>
 
@@ -228,12 +228,12 @@ export default function Contact() {
                     rel="noopener noreferrer" 
                     className="flex items-start gap-3 p-3 rounded-lg hover:bg-primary/5 transition-all duration-300 group/item"
                   >
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-all duration-300 flex-shrink-0">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:item:bg-primary group-hover:item:text-primary-foreground transition-all duration-300 flex-shrink-0">
                       <Linkedin className="h-5 w-5" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs text-foreground/50 font-medium uppercase tracking-wider mb-1">LinkedIn</p>
-                      <p className="text-sm text-foreground/80 group-hover/item:text-primary transition-colors">linkedin.com/in/rijaulsk</p>
+                      <p className="text-sm text-foreground/80 group-hover:item:text-primary transition-colors">linkedin.com/in/rijaulsk</p>
                     </div>
                   </a>
                 </div>
