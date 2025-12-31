@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <link rel="icon" href="/rijaulsk.ico" />
+      </head>
       {/* 1. Added suppressHydrationWarning to <body> 
          2. Removed <head /> (Next.js App Router handles this automatically via metadata)
       */}
