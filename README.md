@@ -10,6 +10,6 @@ Founder of [DebugSwift](https://debugswift.com), a technology agency in Kolkata.
 - [Lead Engine](https://debugswift.com/lead-engine): every WhatsApp enquiry answered in 10 seconds
 - [Blog](https://debugswift.com/blog)
 
-Our product and client code is private, so the work lives at the links above rather than in public repositories.
+Our product and client code is private, so the work lives at the links above rather than in public repositories. Each product has a public page at [@debugswifthq](https://github.com/debugswifthq).
 
 **Contact:** hello@debugswift.com
